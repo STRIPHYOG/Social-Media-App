@@ -1,0 +1,226 @@
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    margin-top: 2em;
+  }
+  
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+    overflow: hidden;
+  }
+  
+  .carousel-inner {
+    position: absolute;
+    width: 1000%; /* Adjusted to accommodate duplicated items */
+    height: 100%;
+    display: flex;
+    transform-style: preserve-3d;
+    animation: slide 300s linear infinite; /* Slowed down the animation */
+  }
+  
+  .carousel-item {
+    width: 10%; /* Adjusted to fit 10 items in the carousel */
+    transition: transform 1s;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px; /* Add margin between items */
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  .developer-card {
+    background: linear-gradient(135deg, #191a1ab0, #ff00003b);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    margin-bottom: 100%;
+    margin-top: 100%;
+    text-align: left;
+    color: #ffffff;
+    width: 100%; /* Ensure the card takes full width of the container */
+    height: 90%; /* Ensure the card takes full height of the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+  }
+  
+  .developer-card::before {
+    content: '<div>';
+    color: #ffffff;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+  
+  .developer-card::after {
+    content: '</div>';
+    color: #ffffff;
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+  }
+  
+  .developer-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #3a2969;
+    box-shadow: #ff0000 0px 0px 15px;
+
+  }
+  
+  .developer-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+    color: #ffffff;
+  }
+  
+  .developer-card p {
+    color: #ffffff;
+    font-size: 0.9em;
+  }
+  
+  .about-content {
+    background: linear-gradient(to right, rgba(3, 100, 255, 0), rgba(7, 82, 203, 0.696) 50%, rgba(3, 100, 255, 0)), 
+                linear-gradient(to left, rgba(248, 8, 8, 0), rgb(164, 8, 248) 50%, rgba(248, 8, 8, 0));
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 19px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.293);
+    padding: 20px;
+    color: #ffffff;
+    text-align: center; /* Center-align the text */
+    position: relative; /* For positioning crackers */
+    overflow: hidden; /* Hide overflow */
+  }
+  
+  .about-content h1 {
+    font-size: 2.5em;
+    color: #ffffff; /* Ensure the heading is white */
+    margin-bottom: 20px;
+  }
+  
+  .about-content p, .about-content address {
+    color: #ffffff;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  
+  .about-content address {
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-container {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  
+    .carousel {
+      height: 200px;
+      order: 2; /* Move carousel below about-content */
+    }
+  
+    .about-content {
+      order: 1; /* Move about-content above carousel */
+      padding: 10px;
+      margin-top: 20px; /* Add margin to separate from carousel */
+    }
+  
+    .carousel-inner {
+      width: 1000%; /* Adjusted to accommodate duplicated items */
+    }
+  
+    .carousel-item {
+      width: 10%; /* Adjusted to fit 10 items in the carousel */
+      margin: 0 5px; /* Add margin between items */
+    }
+  
+    .developer-card {
+      width: 100%;
+      height: 350px; /* Set height for mobile */
+      padding: 10px;
+      margin-top: 30%;
+      margin-bottom: 20px;
+    }
+  
+    .developer-card img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .developer-card h3 {
+      font-size: 1em;
+    }
+  
+    .developer-card p {
+      font-size: 0.8em;
+    }
+  
+    .about-content h1 {
+      font-size: 2em;
+    }
+  
+    .about-content p, .about-content address {
+      font-size: 1em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel {
+      height: 150px;
+      order: 2; /* Move carousel below about-content */
+    }
+  
+    .about-content {
+      order: 1; /* Move about-content above carousel */
+      margin-top: 20px; /* Add margin to separate from carousel */
+    }
+  
+    .carousel-item {
+      margin: 0 5px; /* Add margin between items */
+    }
+  
+    .developer-card {
+      height: 220px; /* Set height for smaller mobile screens */
+    }
+  
+    .developer-card img {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .developer-card h3 {
+      font-size: 0.9em;
+    }
+  
+    .developer-card p {
+      font-size: 0.7em;
+    }
+  
+    .about-content h1 {
+      font-size: 1.5em;
+    }
+  
+    .about-content p, .about-content address {
+      font-size: 0.9em;
+    }
+  }
